@@ -10,7 +10,7 @@ def get_result(jobid):
     t = server.scheduler.jobs.definition(str(jobid))
     m = re.search(r"job_name: (.*)", t)
     if m is None:
-        return None
+        return None, None
     job_title = m.group(0)
     
     # get test suite
@@ -22,7 +22,7 @@ def get_result(jobid):
            test_name.append(data.get('name'))
     
     if not test_name:
-        return None
+        return None, None
     
     test_result = []
     #get test result
@@ -49,19 +49,50 @@ if username == 'hoge' and token == 'huga':
 
 server = xmlrpc.client.ServerProxy("https://%s:%s@%s/RPC2" % (username, token, hostname))
 
-jobid_b = args[1]
-jobid_a = args[2]
+kver_b = args[1]
+kver_a = args[2]
 
-title_b, result_b = get_result(jobid_b)
-title_a, result_a = get_result(jobid_a)
-print ("Compare [%s <-> %s]: %s" % (jobid_b, jobid_a, title_a))
-#match = [dic for dic in result_a if dic in result_b]
-#print("match:" + str(match))
+file_path_b = 'results/%s.yaml' % kver_b
+file_path_a = 'results/%s.yaml' % kver_a
+with open(file_path_b) as stream:
+    result_b_data = yaml.load(stream)
+with open(file_path_a) as stream:
+    result_a_data = yaml.load(stream)
 
-# before only
-only_b = [dic for dic in result_b if dic not in result_a]
-print("only before:" + str(only_b))
+targets = ['qemu-x86_64', 'r8a7743-iwg20d-q7', 'r8a774c0-ek874']
+tests = ['spectre-meltdown-checker-test', 'ltp-dio-tests','ltp-fs-tests',
+    'ltp-ipc-tests', 'ltp-math-tests', 'ltp-sched-tests', 
+    'ltp-timers-tests']
 
-# after only
-only_a = [dic for dic in result_a if dic not in result_b]
-print("only after:" + str(only_a))
+#    'ltp-ipc-tests', 'ltp-math-tests', 'ltp-sched-tests', 'ltp-syscalls-tests',
+for t in targets:
+    data_b = {}
+    data_a = {}
+    for n in range(len(result_b_data['result'])):
+        if result_b_data['result'][n]['target'] == t:
+            data_b = result_b_data['result'][n]
+
+    for n in range(len(result_a_data['result'])):
+        if result_a_data['result'][n]['target'] == t:
+            data_a = result_a_data['result'][n]
+
+    for test in tests:
+        print (test)
+        jobid_b = data_b[test]['id']
+        jobid_a = data_a[test]['id']
+
+        title_b, result_b = get_result(jobid_b)
+        title_a, result_a = get_result(jobid_a)
+
+        if title_a is None or result_a is None or title_b is None or result_b is None:
+           print ("Can not compare [%s <-> %s]" % (jobid_b, jobid_a))
+           continue
+
+        print ("Compare [%s <-> %s]: %s" % (jobid_b, jobid_a, title_a))
+        # before only
+        only_b = [dic for dic in result_b if dic not in result_a]
+        print("only before:" + str(only_b))
+
+        # after only
+        only_a = [dic for dic in result_a if dic not in result_b]
+        print("only after:" + str(only_a))
