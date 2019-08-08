@@ -36,9 +36,17 @@ def get_result(jobid):
 
 args = sys.argv
 
-username = "hoge"
-token = "MYTOKEN"
-hostname = "LAVA_SERVER"
+with open('config.yaml') as stream:
+    config_data = yaml.load(stream)
+
+username = config_data['config']['username']
+token = config_data['config']['token']
+hostname = config_data['config']['server']
+
+if username == 'hoge' and token == 'huga':
+    print ('Please setup config.yaml')
+    exit()
+
 server = xmlrpc.client.ServerProxy("https://%s:%s@%s/RPC2" % (username, token, hostname))
 
 jobid_b = args[1]
