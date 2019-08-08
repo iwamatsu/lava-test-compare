@@ -1,56 +1,56 @@
 result:
-  - name: linux-4.19.y-qemu-x86_64
-      - test_name: spectre-meltdown-checker-test
-        job_id: 2735
-      - test_name: kselftest
-        job_id: 2727
-      - test_name: ltp-dio-tests
-        job_id: 2728
-      - test_name: ltp-fs-tests
-        job_id: 2729
-      - test_name: ltp-ipc-tests
-        job_id: 2730
-      - test_name: ltp-math-tests
-        job_id: 2731
-      - test_name: ltp-sched-tests
-        job_id: 2732
-      - test_name: ltp-syscalls-tests
-        job_id: 2733
-      - test_name: ltp-timers-tests
-        job_id: 2734
+  - target: qemu-x86_64
+    spectre-meltdown-checker-test:
+      id: 2735
+    kselftest:
+      id: 2727
+    ltp-dio-tests:
+      id: 2728
+    ltp-fs-tests:
+      id: 2729
+    ltp-ipc-tests:
+      id: 2730
+    ltp-math-tests:
+      id: 2731
+    ltp-sched-tests:
+      id: 2732
+    ltp-syscalls-tests:
+      id: 2733
+    ltp-timers-tests:
+      id: 2734
 
-  - name: linux-4.19.y-r8a7743-iwg20d-q7
-      - test_name: spectre-meltdown-checker-test
-        job_id: 2744
-      - test_name: ltp-dio-tests
-        job_id: 2736
-      - test_name: ltp-fs-tests
-        job_id: 2737
-      - test_name: ltp-ipc-tests
-        job_id: 2738
-      - test_name: ltp-math-tests
-        job_id: 2739
-      - test_name: ltp-sched-tests
-        job_id: 2740
-      - test_name: ltp-syscalls-tests
-        job_id: 2741
-      - test_name: ltp-timers-tests
-        job_id: 2742
+  - target: r8a7743-iwg20d-q7
+    spectre-meltdown-checker-test:
+      id: 2743
+    ltp-dio-tests:
+      id: 2736
+    ltp-fs-tests:
+      id: 2737
+    ltp-ipc-tests:
+      id: 2738
+    ltp-math-tests:
+      id: 2739
+    ltp-sched-tests:
+      id: 2740
+    ltp-syscalls-tests:
+      id: 2741
+    ltp-timers-tests:
+      id: 2742
 
-  - name: linux-4.19.y-r8a774c0-ek874
-      - test_name: spectre-meltdown-checker-test
-        job_id: 2751
-      - test_name: ltp-dio-tests
-        job_id: 2744
-      - test_name: ltp-fs-tests
-        job_id: 2745
-      - test_name: ltp-ipc-tests
-        job_id: 2746
-      - test_name: ltp-math-tests
-        job_id: 2747
-      - test_name: ltp-sched-tests
-        job_id: 2748
-      - test_name: ltp-syscalls-tests
-        job_id: 2749
-      - test_name: ltp-timers-tests
-        job_id: 2750
+  - target: r8a774c0-ek874
+    spectre-meltdown-checker-test:
+      id: 2751
+    ltp-dio-tests:
+      id: 2744
+    ltp-fs-tests:
+      id: 2745
+    ltp-ipc-tests:
+      id: 2754
+    ltp-math-tests:
+      id: 2747
+    ltp-sched-tests:
+      id: 2748
+    ltp-syscalls-tests:
+      id: 2749
+    ltp-timers-tests:
+      id: 2750
