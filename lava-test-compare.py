@@ -1,4 +1,4 @@
- #!/usr/bin/env python
+ #!/usr/bin/env python3
 
 import sys
 import re
@@ -46,7 +46,7 @@ jobid_a = args[2]
 
 title_b, result_b = get_result(jobid_b)
 title_a, result_a = get_result(jobid_a)
-print (title_a)
+print ("Compare [%s <-> %s]: %s" % (jobid_b, jobid_a, title_a))
 #match = [dic for dic in result_a if dic in result_b]
 #print("match:" + str(match))
 
