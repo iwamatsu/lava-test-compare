@@ -33,7 +33,7 @@ result:
     ltp-sched-tests:
       id: 2740
     ltp-syscalls-tests:
-      id: 2741
+      id: 2779
     ltp-timers-tests:
       id: 2742
 
