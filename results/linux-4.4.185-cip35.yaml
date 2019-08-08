@@ -1,0 +1,38 @@
+result:
+  - target: qemu-x86_64
+    spectre-meltdown-checker-test:
+      id: 2794
+    kselftest:
+      id: 2793
+    ltp-dio-tests:
+      id: 2786
+    ltp-fs-tests:
+      id: 2787
+    ltp-ipc-tests:
+      id: 2788
+    ltp-math-tests:
+      id: 2789
+    ltp-sched-tests:
+      id: 2790
+    ltp-syscalls-tests:
+      id: 2791
+    ltp-timers-tests:
+      id: 2792
+
+  - target: r8a7743-iwg20d-q7
+    spectre-meltdown-checker-test:
+      id: 2802
+    ltp-dio-tests:
+      id: 2795
+    ltp-fs-tests:
+      id: 2796
+    ltp-ipc-tests:
+      id: 2797
+    ltp-math-tests:
+      id: 2798
+    ltp-sched-tests:
+      id: 2799
+    ltp-syscalls-tests:
+      id: 2800
+    ltp-timers-tests:
+      id: 2801
