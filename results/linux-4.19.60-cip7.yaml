@@ -1,0 +1,56 @@
+result:
+  - name: linux-4.19.y-qemu-x86_64
+      - test_name: spectre-meltdown-checker-test
+        job_id: 2368
+      - test_name: kselftest
+        job_id: 2418
+      - test_name: ltp-dio-tests
+        job_id: 2369
+      - test_name: ltp-fs-tests
+        job_id: 2370
+      - test_name: ltp-ipc-tests
+        job_id: 2371
+      - test_name: ltp-math-tests
+        job_id: 2372
+      - test_name: ltp-sched-tests
+        job_id: 2373
+      - test_name: ltp-syscalls-tests
+        job_id: 2374
+      - test_name: ltp-timers-tests
+        job_id: 2375
+
+  - name: linux-4.19.y-r8a7743-iwg20d-q7
+      - test_name: spectre-meltdown-checker-test
+        job_id: 2485
+      - test_name: ltp-dio-tests
+        job_id: 2353
+      - test_name: ltp-fs-tests
+        job_id: 2354
+      - test_name: ltp-ipc-tests
+        job_id: 2355
+      - test_name: ltp-math-tests
+        job_id: 2356
+      - test_name: ltp-sched-tests
+        job_id: 2357
+      - test_name: ltp-syscalls-tests
+        job_id: 2505
+      - test_name: ltp-timers-tests
+        job_id: 2359
+
+  - name: linux-4.19.y-r8a774c0-ek874
+      - test_name: spectre-meltdown-checker-test
+        job_id: 2719
+      - test_name: ltp-dio-tests
+        job_id: 2360
+      - test_name: ltp-fs-tests
+        job_id: 2361
+      - test_name: ltp-ipc-tests
+        job_id: 2362
+      - test_name: ltp-math-tests
+        job_id: 22363
+      - test_name: ltp-sched-tests
+        job_id: 2364
+      - test_name: ltp-syscalls-tests
+        job_id: 2422
+      - test_name: ltp-timers-tests
+        job_id: 2366
