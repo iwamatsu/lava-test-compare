@@ -52,6 +52,15 @@ server = xmlrpc.client.ServerProxy("https://%s:%s@%s/RPC2" % (username, token, h
 kver_b = args[1]
 kver_a = args[2]
 
+if '4.19' in kver_b:
+    targets = ['qemu-x86_64', 'r8a7743-iwg20d-q7', 'r8a774c0-ek874']
+else:
+    targets = ['qemu-x86_64', 'r8a7743-iwg20d-q7'] #, 'r8a774c0-ek874']
+
+tests = ['spectre-meltdown-checker-test', 'ltp-dio-tests','ltp-fs-tests',
+    'ltp-ipc-tests', 'ltp-math-tests', 'ltp-sched-tests', 'ltp-syscalls-tests',
+    'ltp-timers-tests']
+
 file_path_b = 'results/%s.yaml' % kver_b
 file_path_a = 'results/%s.yaml' % kver_a
 with open(file_path_b) as stream:
@@ -59,10 +68,6 @@ with open(file_path_b) as stream:
 with open(file_path_a) as stream:
     result_a_data = yaml.load(stream)
 
-targets = ['qemu-x86_64', 'r8a7743-iwg20d-q7', 'r8a774c0-ek874']
-tests = ['spectre-meltdown-checker-test', 'ltp-dio-tests','ltp-fs-tests',
-    'ltp-ipc-tests', 'ltp-math-tests', 'ltp-sched-tests', 
-    'ltp-timers-tests']
 
 #    'ltp-ipc-tests', 'ltp-math-tests', 'ltp-sched-tests', 'ltp-syscalls-tests',
 for t in targets:
