@@ -1,4 +1,4 @@
- #!/usr/bin/env python3
+#!/usr/bin/env python3
 
 import sys
 import re
@@ -68,8 +68,6 @@ with open(file_path_b) as stream:
 with open(file_path_a) as stream:
     result_a_data = yaml.load(stream)
 
-
-#    'ltp-ipc-tests', 'ltp-math-tests', 'ltp-sched-tests', 'ltp-syscalls-tests',
 for t in targets:
     data_b = {}
     data_a = {}
@@ -82,7 +80,6 @@ for t in targets:
             data_a = result_a_data['result'][n]
 
     for test in tests:
-        print (test)
         jobid_b = data_b[test]['id']
         jobid_a = data_a[test]['id']
 
@@ -96,8 +93,8 @@ for t in targets:
         print ("Compare [%s <-> %s]: %s" % (jobid_b, jobid_a, title_a))
         # before only
         only_b = [dic for dic in result_b if dic not in result_a]
-        print("only before:" + str(only_b))
+        print("    only before:" + str(only_b))
 
         # after only
         only_a = [dic for dic in result_a if dic not in result_b]
-        print("only after:" + str(only_a))
+        print("    only after:" + str(only_a))
