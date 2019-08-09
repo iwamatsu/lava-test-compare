@@ -49,8 +49,8 @@ result:
     ltp-math-tests:
       id: 2044
     ltp-sched-tests:
-      id: 2045
+      id: 2828
     ltp-syscalls-tests:
-      id: 2046
+      id: 2827
     ltp-timers-tests:
       id: 2047
