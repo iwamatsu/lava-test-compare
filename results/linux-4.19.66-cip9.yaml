@@ -21,7 +21,7 @@ result:
 
   - target: r8a7743-iwg20d-q7
     spectre-meltdown-checker-test:
-      id: 3137
+      id: 3147
     ltp-dio-tests:
       id: 3140
     ltp-fs-tests:
