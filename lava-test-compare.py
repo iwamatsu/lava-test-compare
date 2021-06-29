@@ -53,9 +53,11 @@ kver_b = args[1]
 kver_a = args[2]
 
 if '4.19' in kver_b:
-    targets = ['qemu-x86_64', 'r8a7743-iwg20d-q7', 'r8a774c0-ek874']
+    #targets = ['qemu-x86_64', 'r8a7743-iwg20d-q7', 'r8a774c0-ek874']
+    targets = ['r8a7743-iwg20d-q7']
 else:
-    targets = ['qemu-x86_64', 'r8a7743-iwg20d-q7'] #, 'r8a774c0-ek874']
+    #targets = ['qemu-x86_64', 'r8a7743-iwg20d-q7'] #, 'r8a774c0-ek874']
+    targets = ['r8a7743-iwg20d-q7']
 
 tests = ['spectre-meltdown-checker-test', 'ltp-dio-tests','ltp-fs-tests',
     'ltp-ipc-tests', 'ltp-math-tests', 'ltp-sched-tests', 'ltp-syscalls-tests',
