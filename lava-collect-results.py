@@ -44,18 +44,18 @@ def get_lava_info_testjob(logs):
             m = re.search(r'\d+', line)
             i = m.group()
         elif "Device Type:" in line:
-            d = re.findall ("Device Type: (.*)", line)
-            
+            d = re.findall("Device Type: (.*)", line)
+            device = d[0]
         elif "Test:" in line:
-            t = re.findall ("Test: (.*)", line)
-            # last data
-            if d[0] not in jobs:
-                jobs[d[0]] = []
-            jobs[d[0]].append({t[0]: int(i)})
+            t = re.findall("Test: (.*)", line)
+            if len(jobs) != 0:
+                jobs.update({t[0]: int(i)})
+            else:
+                jobs = ({t[0]: int(i)})
         else:
             continue
 
-    return jobs
+    return device, jobs
 
 def _main() -> None:
 
@@ -82,7 +82,7 @@ def _main() -> None:
     pipeline = project.pipelines.get(args.pipeline)
 
     results = dict()
-    results['results'] = []
+    results.setdefault('results', {})
     kernel_version = 'unknown'
     
     jobs = pipeline.jobs.list()
@@ -99,12 +99,18 @@ def _main() -> None:
             kernel_version = "%s_%s" % (__kernel_version[-2], __kernel_version[-1])
             filename = 'results/' + kernel_version + '.yaml'
             if os.path.exists(filename):
+                print (filename)
                 sys.exit(0)
-    
-        jobs = get_lava_info_testjob(trace_log)
-    
-        if len(jobs) != 0:
-            results['results'].append(jobs)
+
+        target, jobs = get_lava_info_testjob(trace_log)
+        if len(jobs) != 0 and len(target) != 0:
+            main_data = results['results']
+            if target in main_data:
+                main_data[target].update(jobs)
+            else:
+                __data = {}
+                __data.setdefault(target, jobs)
+                results['results'].update(__data)
     
     with open(filename, mode='wt', encoding='utf-8') as file:
         yaml.dump(results, file, encoding='utf-8', allow_unicode=True)

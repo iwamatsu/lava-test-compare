@@ -16,7 +16,7 @@ def get_result(jobid):
     # get test suite
     t = server.results.get_testjob_suites_list_yaml(str(jobid))
     test_name = [] 
-    testjob_data_dict = yaml.load(t)
+    testjob_data_dict = yaml.load(t, Loader=yaml.FullLoader)
     for data in testjob_data_dict:
         if data.get('name') != 'lava':
            test_name.append(data.get('name'))
@@ -28,7 +28,7 @@ def get_result(jobid):
     #get test result
     for test in test_name:
         t = server.results.get_testsuite_results_yaml(str(jobid), test)
-        test_result_dict = yaml.load(t)
+        test_result_dict = yaml.load(t, Loader=yaml.FullLoader)
         for data in test_result_dict:
             test_result.append(data.get('metadata'))
     
@@ -37,7 +37,7 @@ def get_result(jobid):
 args = sys.argv
 
 with open('config.yaml') as stream:
-    config_data = yaml.load(stream)
+    config_data = yaml.load(stream, Loader=yaml.FullLoader)
 
 username = config_data['config']['username']
 token = config_data['config']['token']
@@ -66,24 +66,41 @@ tests = ['smc', 'ltp-dio-tests','ltp-fs-tests',
 file_path_b = 'results/%s.yaml' % kver_b
 file_path_a = 'results/%s.yaml' % kver_a
 with open(file_path_b) as stream:
-    result_b_data = yaml.load(stream)
+    result_b_data = yaml.load(stream, Loader=yaml.FullLoader)
 with open(file_path_a) as stream:
-    result_a_data = yaml.load(stream)
+    result_a_data = yaml.load(stream, Loader=yaml.FullLoader)
+
+print (result_b_data)
+print (result_a_data)
 
 for t in targets:
     data_b = {}
     data_a = {}
-    for n in range(len(result_b_data['result'])):
-        if result_b_data['result'][n]['target'] == t:
-            data_b = result_b_data['result'][n]
+    for n in range(len(result_b_data['results'])):
+        if t in result_b_data['results'][n]:
+            data_b = result_b_data['results'][n][t] 
 
-    for n in range(len(result_a_data['result'])):
-        if result_a_data['result'][n]['target'] == t:
-            data_a = result_a_data['result'][n]
+    for n in range(len(result_a_data['results'])):
+        if t in result_a_data['results'][n]:
+            data_a = result_a_data['results'][n][t] 
 
+    if len(data_b) == 0 or len(data_a) == 0:
+        continue
+
+    print (data_a)
+    print (data_b)
+
+    continue
     for test in tests:
-        jobid_b = data_b[test]['id']
-        jobid_a = data_a[test]['id']
+        for n in range(len(data_b)):
+            if test not in data_b[n]:
+                continue
+            if test not in data_a[n]:
+                continue
+            jobid_b = data_b[n][test]
+            jobid_a = data_a[n][test]
+        print (jobid_b)
+        print (jobid_a)
 
         title_b, result_b = get_result(jobid_b)
         title_a, result_a = get_result(jobid_a)
