@@ -5,6 +5,7 @@ import argparse
 import gitlab
 import yaml
 import sys
+import os
 import re
 
 def info(msg: str) -> None:
@@ -96,13 +97,14 @@ def _main() -> None:
         if __kernel_version != None and kernel_version == 'unknown':
             __kernel_version = __kernel_version.split('_')
             kernel_version = "%s_%s" % (__kernel_version[-2], __kernel_version[-1])
+            filename = 'results/' + kernel_version + '.yaml'
+            if os.path.exists(filename):
+                sys.exit(0)
     
         jobs = get_lava_info_testjob(trace_log)
     
         if len(jobs) != 0:
             results['results'].append(jobs)
-    
-    filename = kernel_version + '.yaml'
     
     with open(filename, mode='wt', encoding='utf-8') as file:
         yaml.dump(results, file, encoding='utf-8', allow_unicode=True)
