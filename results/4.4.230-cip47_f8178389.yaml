@@ -1,0 +1,25 @@
+results:
+- qemu:
+  - ltp-cve-tests: 35571
+  - ltp-dio-tests: 35572
+  - ltp-fs-tests: 35573
+  - ltp-ipc-tests: 35574
+  - ltp-math-tests: 35575
+  - ltp-sched-tests: 35576
+  - ltp-syscalls-tests: 35577
+  - ltp-timers-tests: 35578
+- r8a7743-iwg20d-q7:
+  - ltp-cve-tests: 35559
+  - ltp-dio-tests: 35561
+  - ltp-fs-tests: 35563
+  - ltp-ipc-tests: 35564
+  - ltp-math-tests: 35565
+  - ltp-sched-tests: 35566
+  - ltp-syscalls-tests: 35567
+  - ltp-timers-tests: 35568
+- qemu:
+  - boot: 35569
+  - smc: 35570
+- r8a7743-iwg20d-q7:
+  - boot: 35560
+  - smc: 35562

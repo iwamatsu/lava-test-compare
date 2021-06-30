@@ -1,0 +1,43 @@
+results:
+- r8a774a1-hihope-rzg2m-ex:
+  - ltp-cve-tests: 16780
+  - ltp-dio-tests: 16781
+  - ltp-fs-tests: 16782
+  - ltp-ipc-tests: 16783
+  - ltp-math-tests: 16784
+  - ltp-sched-tests: 16785
+  - ltp-syscalls-tests: 16786
+  - ltp-timers-tests: 16787
+- r8a7743-iwg20d-q7:
+  - ltp-cve-tests: 16646
+  - ltp-dio-tests: 16649
+  - ltp-fs-tests: 16652
+  - ltp-ipc-tests: 16655
+  - ltp-math-tests: 16658
+  - ltp-sched-tests: 16661
+  - ltp-syscalls-tests: 16662
+  - ltp-timers-tests: 16663
+- qemu:
+  - ltp-cve-tests: 16543
+  - ltp-dio-tests: 16545
+  - ltp-fs-tests: 16547
+  - ltp-ipc-tests: 16549
+  - ltp-math-tests: 16551
+  - ltp-sched-tests: 16553
+  - ltp-syscalls-tests: 16555
+  - ltp-timers-tests: 16557
+- x86:
+  - boot: 16559
+  - smc: 16560
+- qemu:
+  - boot: 16539
+  - smc: 16540
+- r8a774a1-hihope-rzg2m-ex:
+  - boot: 16541
+  - smc: 16542
+- de0-nano-soc:
+  - boot: 16537
+  - smc: 16538
+- r8a7743-iwg20d-q7:
+  - boot: 16519
+  - smc: 16523

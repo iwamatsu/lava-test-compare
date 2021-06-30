@@ -1,0 +1,15 @@
+submitted as job: https://lava.ciplatform.org/scheduler/job/2831
+ryzen7:cip-lava-tools master$ sh  base/cip-lava-tool  base/r8a7743-iwg20d-q7_4.4.y-device-test.yaml 
+submitted as job: https://lava.ciplatform.org/scheduler/job/2832
+
+
+
+ryzen7:cip-lava-tools master$ sh  base/cip-lava-tool  base/r8a7743-iwg20d-q7_4.19.y-device-test.yaml                                                                                         
+submitted as job: https://lava.ciplatform.org/scheduler/job/2831
+ryzen7:cip-lava-tools master$ sh  base/cip-lava-tool  base/r8a7743-iwg20d-q7_4.4.y-device-test.yaml                                                                                          
+submitted as job: https://lava.ciplatform.org/scheduler/job/2832
+ryzen7:cip-lava-tools master$ sh  base/cip-lava-tool  base/r8a7743-iwg20d-q7_4.19.y-setup-internet.yaml
+submitted as job: https://lava.ciplatform.org/scheduler/job/2834
+ryzen7:cip-lava-tools master$ sh  base/cip-lava-tool  base/r8a7743-iwg20d-q7_4.19.y-device-test.yaml 
+submitted as job: https://lava.ciplatform.org/scheduler/job/2835
+

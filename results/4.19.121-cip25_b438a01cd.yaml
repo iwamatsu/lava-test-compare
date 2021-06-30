@@ -1,0 +1,43 @@
+results:
+- r8a7743-iwg20d-q7:
+  - ltp-cve-tests: 15845
+  - ltp-dio-tests: 15846
+  - ltp-fs-tests: 15847
+  - ltp-ipc-tests: 15848
+  - ltp-math-tests: 15849
+  - ltp-sched-tests: 15850
+  - ltp-syscalls-tests: 15851
+  - ltp-timers-tests: 15852
+- qemu:
+  - ltp-cve-tests: 15789
+  - ltp-dio-tests: 15793
+  - ltp-fs-tests: 15797
+  - ltp-ipc-tests: 15800
+  - ltp-math-tests: 15803
+  - ltp-sched-tests: 15806
+  - ltp-syscalls-tests: 15809
+  - ltp-timers-tests: 15812
+- r8a774a1-hihope-rzg2m-ex:
+  - ltp-cve-tests: 15788
+  - ltp-dio-tests: 15792
+  - ltp-fs-tests: 15796
+  - ltp-ipc-tests: 15799
+  - ltp-math-tests: 15802
+  - ltp-sched-tests: 15805
+  - ltp-syscalls-tests: 15808
+  - ltp-timers-tests: 15811
+- r8a774a1-hihope-rzg2m-ex:
+  - boot: 15791
+  - smc: 15795
+- x86:
+  - boot: 15781
+  - smc: 15782
+- qemu:
+  - boot: 15764
+  - smc: 15766
+- Altera-Terasic-Deo-Nano:
+  - boot: 15754
+  - smc: 15756
+- r8a7743-iwg20d-q7:
+  - boot: 15749
+  - smc: 15750

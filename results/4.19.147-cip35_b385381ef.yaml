@@ -1,0 +1,55 @@
+results:
+- r8a774a1-hihope-rzg2m-ex:
+  - ltp-cve-tests: 50416
+  - ltp-dio-tests: 50417
+  - ltp-fs-tests: 50418
+  - ltp-ipc-tests: 50419
+  - ltp-math-tests: 50420
+  - ltp-sched-tests: 50421
+  - ltp-syscalls-tests: 50422
+  - ltp-timers-tests: 50423
+- zynqmp-zcu102:
+  - ltp-cve-tests: 50330
+  - ltp-dio-tests: 50331
+  - ltp-fs-tests: 50332
+  - ltp-ipc-tests: 50333
+  - ltp-math-tests: 50334
+  - ltp-sched-tests: 50335
+  - ltp-syscalls-tests: 50336
+  - ltp-timers-tests: 50337
+- qemu:
+  - ltp-cve-tests: 49171
+  - ltp-dio-tests: 49173
+  - ltp-fs-tests: 49175
+  - ltp-ipc-tests: 49177
+  - ltp-math-tests: 49178
+  - ltp-sched-tests: 49179
+  - ltp-syscalls-tests: 49180
+  - ltp-timers-tests: 49181
+- r8a7743-iwg20d-q7:
+  - ltp-cve-tests: 49186
+  - ltp-dio-tests: 49187
+  - ltp-fs-tests: 49188
+  - ltp-ipc-tests: 49189
+  - ltp-math-tests: 49190
+  - ltp-sched-tests: 49191
+  - ltp-syscalls-tests: 49192
+  - ltp-timers-tests: 49193
+- zynqmp-zcu102:
+  - boot: 49184
+  - smc: 49185
+- x86:
+  - boot: 49167
+  - smc: 49169
+- qemu:
+  - boot: 49182
+  - smc: 49183
+- r8a774a1-hihope-rzg2m-ex:
+  - boot: 49194
+  - smc: 49195
+- de0-nano-soc:
+  - boot: 49161
+  - smc: 49163
+- r8a7743-iwg20d-q7:
+  - boot: 49160
+  - smc: 49162
