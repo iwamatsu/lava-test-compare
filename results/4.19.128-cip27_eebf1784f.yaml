@@ -1,0 +1,40 @@
+results:
+  de0-nano-soc:
+    boot: 17726
+    smc: 17728
+  qemu:
+    boot: 17696
+    ltp-cve-tests: 17697
+    ltp-dio-tests: 17703
+    ltp-fs-tests: 17708
+    ltp-ipc-tests: 17711
+    ltp-math-tests: 17714
+    ltp-sched-tests: 17717
+    ltp-syscalls-tests: 17719
+    ltp-timers-tests: 17721
+    smc: 17702
+  r8a7743-iwg20d-q7:
+    boot: 17691
+    ltp-cve-tests: 17692
+    ltp-dio-tests: 17694
+    ltp-fs-tests: 17695
+    ltp-ipc-tests: 17700
+    ltp-math-tests: 17706
+    ltp-sched-tests: 17710
+    ltp-syscalls-tests: 17713
+    ltp-timers-tests: 17716
+    smc: 17693
+  r8a774a1-hihope-rzg2m-ex:
+    boot: 17698
+    ltp-cve-tests: 17804
+    ltp-dio-tests: 17805
+    ltp-fs-tests: 17806
+    ltp-ipc-tests: 17807
+    ltp-math-tests: 17808
+    ltp-sched-tests: 17809
+    ltp-syscalls-tests: 17810
+    ltp-timers-tests: 17811
+    smc: 17704
+  x86:
+    boot: 17723
+    smc: 17724

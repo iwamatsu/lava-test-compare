@@ -1,0 +1,23 @@
+results:
+  qemu:
+    boot: 17768
+    ltp-cve-tests: 17766
+    ltp-dio-tests: 17767
+    ltp-fs-tests: 17769
+    ltp-ipc-tests: 17771
+    ltp-math-tests: 17772
+    ltp-sched-tests: 17773
+    ltp-syscalls-tests: 17774
+    ltp-timers-tests: 17775
+    smc: 17770
+  r8a7743-iwg20d-q7:
+    boot: 17757
+    ltp-cve-tests: 17756
+    ltp-dio-tests: 17758
+    ltp-fs-tests: 17760
+    ltp-ipc-tests: 17761
+    ltp-math-tests: 17762
+    ltp-sched-tests: 17763
+    ltp-syscalls-tests: 17764
+    ltp-timers-tests: 17765
+    smc: 17759

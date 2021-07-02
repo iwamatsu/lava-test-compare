@@ -1,0 +1,48 @@
+results:
+  de0-nano-soc:
+    boot: 128322
+    smc: 128323
+  qemu:
+    boot: 128332
+    ltp-cve-tests: 128324
+    ltp-dio-tests: 128325
+    ltp-fs-tests: 128326
+    ltp-ipc-tests: 128327
+    ltp-math-tests: 128328
+    ltp-sched-tests: 128329
+    ltp-syscalls-tests: 128330
+    ltp-timers-tests: 128331
+    smc: 128333
+  r8a7743-iwg20d-q7:
+    boot: 128344
+    ltp-cve-tests: 128336
+    ltp-dio-tests: 128337
+    ltp-fs-tests: 128338
+    ltp-ipc-tests: 128339
+    ltp-math-tests: 128340
+    ltp-sched-tests: 128341
+    ltp-syscalls-tests: 128342
+    ltp-timers-tests: 128343
+    smc: 128345
+  r8a774a1-hihope-rzg2m-ex:
+    boot: 128312
+    ltp-cve-tests: 128387
+    ltp-dio-tests: 128388
+    ltp-fs-tests: 128389
+    ltp-ipc-tests: 128390
+    ltp-math-tests: 128391
+    ltp-sched-tests: 128392
+    ltp-syscalls-tests: 128393
+    ltp-timers-tests: 128395
+    smc: 128313
+  zynqmp-zcu102:
+    boot: 128334
+    ltp-cve-tests: 128394
+    ltp-dio-tests: 128396
+    ltp-fs-tests: 128397
+    ltp-ipc-tests: 128398
+    ltp-math-tests: 128399
+    ltp-sched-tests: 128400
+    ltp-syscalls-tests: 128401
+    ltp-timers-tests: 128402
+    smc: 128335

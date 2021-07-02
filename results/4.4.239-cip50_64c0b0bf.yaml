@@ -1,0 +1,23 @@
+results:
+  qemu:
+    boot: 64437
+    ltp-cve-tests: 64429
+    ltp-dio-tests: 64430
+    ltp-fs-tests: 64431
+    ltp-ipc-tests: 64432
+    ltp-math-tests: 64433
+    ltp-sched-tests: 64434
+    ltp-syscalls-tests: 64435
+    ltp-timers-tests: 64436
+    smc: 64438
+  r8a7743-iwg20d-q7:
+    boot: 64427
+    ltp-cve-tests: 64419
+    ltp-dio-tests: 64420
+    ltp-fs-tests: 64421
+    ltp-ipc-tests: 64422
+    ltp-math-tests: 64423
+    ltp-sched-tests: 64424
+    ltp-syscalls-tests: 64425
+    ltp-timers-tests: 64426
+    smc: 64428
