@@ -57,30 +57,8 @@ def get_lava_info_testjob(logs):
 
     return device, jobs
 
-def _main() -> None:
-
-    parser = argparse.ArgumentParser(description=__doc__)
-    parser.add_argument(
-        "pipeline", nargs="?", type=int, metavar="PIPELINE-ID",
-        help=(
-            "select a GitLab CI pipeline by ID"
-            " (default: the last pipeline of a git branch)"
-        ),
-    )
-
-    args = parser.parse_args()
-    if (not args.pipeline or args.pipeline < 0):
-        print ("Please set pipeline")
-        sys.exit()
-
-    project_id = 2678032
-
-    gl = gitlab.Gitlab.from_config('gitlab', ['.python-gitlab.cfg'])
-    project = gl.projects.get(project_id)
-    pipelines = project.pipelines.list()
-    print (args.pipeline)
-    pipeline = project.pipelines.get(args.pipeline)
-
+def get_test_results(project, pipeline_id):
+    pipeline = project.pipelines.get(pipeline_id)
     results = dict()
     results.setdefault('results', {})
     kernel_version = 'unknown'
@@ -99,7 +77,6 @@ def _main() -> None:
             kernel_version = "%s_%s" % (__kernel_version[-2], __kernel_version[-1])
             filename = 'results/' + kernel_version + '.yaml'
             if os.path.exists(filename):
-                print (filename)
                 sys.exit(0)
 
         target, jobs = get_lava_info_testjob(trace_log)
@@ -114,6 +91,34 @@ def _main() -> None:
     
     with open(filename, mode='wt', encoding='utf-8') as file:
         yaml.dump(results, file, encoding='utf-8', allow_unicode=True)
+    print ("Save as %s" % filename)
+
+def _main() -> None:
+
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument(
+        "pipeline", nargs="?", type=int, metavar="PIPELINE-ID",
+        help=(
+            "select a GitLab CI pipeline by ID"
+            " (default: the last pipeline of a git branch)"
+        ),
+    )
+
+    args = parser.parse_args()
+
+    project_id = 2678032
+
+    gl = gitlab.Gitlab.from_config('gitlab', ['.python-gitlab.cfg'])
+    project = gl.projects.get(project_id)
+    if (not args.pipeline or args.pipeline < 0):
+        pipelines = project.pipelines.list()
+        for __pipeline in pipelines:
+            if __pipeline.ref == "ci/iwamatsu/linux-4.4.y-cip-rc" \
+                or __pipeline.ref == "ci/iwamatsu/linux-4.19.y-cip-rc" \
+                or __pipeline.ref == "ci/iwamatsu/linux-5.10.y-cip-rc":
+                get_test_results(project, __pipeline.id)
+    else:
+        get_test_results(project, args.pipeline)
 
 def main() -> None:
     try:
