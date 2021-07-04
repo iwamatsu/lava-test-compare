@@ -1,0 +1,6 @@
+- case: aio01
+  definition: 1_ltp-io-tests
+  result: pass
+- case: aio02
+  definition: 1_ltp-io-tests
+  result: fail
