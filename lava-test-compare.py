@@ -51,7 +51,7 @@ def save2text(target, jobid, test_name, save_basedir, data):
 
 args = sys.argv
 
-with open('config.yaml') as stream:
+with open('lava.yaml') as stream:
     config_data = yaml.load(stream, Loader=yaml.FullLoader)
 
 username = config_data['config']['username']
@@ -112,9 +112,6 @@ for t in targets:
         if title_a is None or result_a is None or title_b is None or result_b is None:
            print ("Can not compare [%s <-> %s]" % (jobid_b, jobid_a))
            continue
-
-        #print(result_a)
-        #print(result_b)
 
         save2text(t, jobid_b, test, save_dir_b, result_b)
         save2text(t, jobid_a, test, save_dir_a, result_a)

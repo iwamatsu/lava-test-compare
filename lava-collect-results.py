@@ -11,15 +11,14 @@ import re
 def info(msg: str) -> None:
     print(msg, file=sys.stderr)  
 
-def get_kernel_version(logs):
+def get_kernel_version(logs: str) -> None:
     check = False
     lines = logs.split("\n")
 
     for line in lines:
-        if line == "Creating test job" and check == False:
-            check = True
-            continue
         if check == False:
+            if line == "Creating test job" :
+                check = True
             continue
 
         if "Version:" in line:
@@ -28,18 +27,19 @@ def get_kernel_version(logs):
 
     return None
 
-def get_lava_info_testjob(logs):
+def get_lava_info_testjob(logs: str) -> None:
     jobs = dict()
     check = False
     device = ''
     lines = logs.split("\n")
 
     for line in lines:
-        if line == "Final job status:" and check == False:
-            check = True
-            continue
+
         if check == False:
+            if line == "Final job status:" :
+                check = True
             continue
+
         if "Job #" in line:
             m = re.search(r'\d+', line)
             i = m.group()
@@ -62,6 +62,7 @@ def get_test_results(project, pipeline_id):
     results = dict()
     results.setdefault('results', {})
     kernel_version = 'unknown'
+    filename = ''
     
     jobs = pipeline.jobs.list()
     for __job in jobs:
@@ -76,8 +77,8 @@ def get_test_results(project, pipeline_id):
             __kernel_version = __kernel_version.split('_')
             kernel_version = "%s_%s" % (__kernel_version[-2], __kernel_version[-1])
             filename = 'results/' + kernel_version + '.yaml'
-            if os.path.exists(filename):
-                sys.exit(0)
+            #if os.path.exists(filename):
+            #    sys.exit(0)
 
         target, jobs = get_lava_info_testjob(trace_log)
         if len(jobs) != 0 and len(target) != 0:
@@ -88,10 +89,10 @@ def get_test_results(project, pipeline_id):
                 __data = {}
                 __data.setdefault(target, jobs)
                 results['results'].update(__data)
-    
-    with open(filename, mode='wt', encoding='utf-8') as file:
-        yaml.dump(results, file, encoding='utf-8', allow_unicode=True)
-    print ("Save as %s" % filename)
+    if filename != '':
+        with open(filename, mode='wt', encoding='utf-8') as file:
+            yaml.dump(results, file, encoding='utf-8', allow_unicode=True)
+        print ("Save to %s" % filename)
 
 def _main() -> None:
 
