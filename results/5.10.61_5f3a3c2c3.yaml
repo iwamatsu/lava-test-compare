@@ -1,0 +1,35 @@
+results:
+  de0-nano-soc:
+    boot: 397087
+    smc: 397089
+  qemu:
+    boot: 397096
+    ltp-cve-tests: 397083
+    ltp-dio-tests: 397086
+    ltp-fs-tests: 397088
+    ltp-ipc-tests: 397090
+    ltp-math-tests: 397091
+    ltp-sched-tests: 397092
+    ltp-syscalls-tests: 397094
+    ltp-timers-tests: 397097
+    smc: 397098
+  r8a7743-iwg20d-q7:
+    boot: 397072
+    ltp-cve-tests: 406980
+    ltp-dio-tests: 406981
+    ltp-fs-tests: 406983
+    ltp-ipc-tests: 406985
+    ltp-math-tests: 406987
+    ltp-sched-tests: 406989
+    ltp-syscalls-tests: 406991
+    ltp-timers-tests: 406993
+    smc: 397074
+  r8a774a1-hihope-rzg2m-ex:
+    boot: 397093
+    smc: 397095
+  x86-simatic-ipc227e:
+    boot: 397081
+    smc: 397084
+  zynqmp-zcu102:
+    boot: 397082
+    smc: 397085

@@ -1,0 +1,12 @@
+results:
+  r8a7743-iwg20d-q7:
+    boot: 375491
+    ltp-cve-tests: 375497
+    ltp-dio-tests: 375499
+    ltp-fs-tests: 375502
+    ltp-ipc-tests: 375507
+    ltp-math-tests: 375512
+    ltp-sched-tests: 375515
+    ltp-syscalls-tests: 375519
+    ltp-timers-tests: 375523
+    smc: 375493

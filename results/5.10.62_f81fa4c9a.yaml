@@ -1,0 +1,24 @@
+results:
+  de0-nano-soc:
+    boot: 419093
+    smc: 419094
+  qemu:
+    boot: 419095
+    smc: 419099
+  r8a7743-iwg20d-q7:
+    boot: 419096
+    ltp-cve-tests: 419107
+    ltp-dio-tests: 419110
+    ltp-fs-tests: 419113
+    ltp-ipc-tests: 419116
+    ltp-math-tests: 419119
+    ltp-sched-tests: 419123
+    ltp-syscalls-tests: 419126
+    ltp-timers-tests: 419129
+    smc: 419100
+  x86-simatic-ipc227e:
+    boot: 419022
+    smc: 419023
+  zynqmp-zcu102:
+    boot: 408804
+    smc: 408805

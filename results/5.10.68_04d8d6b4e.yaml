@@ -1,0 +1,10 @@
+results:
+  r8a774a1-hihope-rzg2m-ex:
+    boot: 438617
+    smc: 438618
+  x86-simatic-ipc227e:
+    boot: 438569
+    smc: 438571
+  zynqmp-zcu102:
+    boot: 438607
+    smc: 438610
